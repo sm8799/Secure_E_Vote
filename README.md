@@ -6,4 +6,4 @@ This is the repository containing the information and code regarding secure e vo
 We are up with version 1.1
 Watch the tutorial here
 
-![Logo](https://youtu.be/rRCgPY5vrzo)
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://www.youtube.com/watch?v=rRCgPY5vrzo&t=3s)
