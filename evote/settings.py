@@ -134,7 +134,7 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_PASSWORD = 'Mahi@7781'
+EMAIL_HOST_PASSWORD = '*********'
 EMAIL_HOST_USER = 'secureevote@gmail.com'
 EMAIL_USE_SSL = False
 EMAIL_USE_TLS = True
