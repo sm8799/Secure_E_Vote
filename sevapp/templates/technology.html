@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Technology</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+ <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		.home_logo{
+	   		width: 80px;
+	  	}
+		.header{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+		}
+		.header-right{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+		}
+		.nav-link{
+			font-family: sans-serif;
+			color: #02290e;
+			font-size: 1.2em;
+			margin-right: 20px;
+		}
+		.footer{
+	    	background-color: #c9f2cc;
+	    	margin-top: 60px;
+		}
+		.footer p{
+		    font-family: 'Gotu', sans-serif;
+		    font-style: 0.5em;
+		    text-align: center;
+		}
+		.footer img{
+		    width: 1em;
+		}
+		.technology{
+			margin-bottom: 30px;
+			margin-top: 30px;
+		}
+		.technology h2{
+			padding-top: 20px;
+			font-family: 'Poppins', sans-serif;
+			text-align: center;
+		}
+		.container{
+			margin-right: auto;
+			display: block;
+			margin-left: auto;
+		}
+		.container:hover .sharepic{
+			transform: scale(1.1);
+			transition: .3s ease;
+			filter: brightness(1.05);
+		}
+		.container:hover .ballot{
+			transform: scale(1.1);
+			transition: .3s ease;
+			filter: brightness(1.05);
+		}
+		.container:hover .hacker{
+			transform: scale(1.1);
+			transition: .3s ease;
+			filter: brightness(1.05);
+		}
+		.sharepic{
+			max-width: 350px;
+			width: 100%;
+			height: 380px;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			border: 2px solid #014006;
+			border-radius: 30px;
+			transition: .3s ease;
+		}
+		.hacker{
+			max-width: 350px;
+			width: 100%;
+			height: 380px;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			border: 2px solid #014006;
+			border-radius: 30px;
+			transition: .3s ease;
+		}
+		.ballot{
+			max-width: 350px;
+			width: 100%;
+			height: 380px;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			border: 2px solid #014006;
+			border-radius: 30px;
+			transition: .3s ease;
+		}
+		body {
+			background-color: #edfaed;
+		}
+		.row {
+			margin-top: 35px;
+			margin-bottom: 35px;
+			margin-left: auto;
+			margin-left: auto;
+		}
+		.row p{
+			padding-bottom: 30px;
+			padding-top: 30px;
+			max-width: 400px;
+			width: 100%;
+			padding-right: auto;
+			padding-left: auto;
+			text-align: center;
+			font-family: 'Poppins', sans-serif;
+			font-size: 1.3em;
+			margin-right: auto;
+			margin-left: auto;
+			display: block;
+		}
+		.navbar-toggler { 
+			border-color: lightgreen; 
+		}
+		.navbar-toggler-icon { 
+  			background-image: url( 
+	    	"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+		}
+	</style>
+</head>
+<body>
+	<div class = "navigation_bar">
+      <nav class="navbar navbar-expand-lg nav-fixed-top " style="background-color: #c9f2cc;">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link header" href="{% url 'about' %}">About</a></li>
+              <li class="nav-item">
+                <a class="nav-link header" href="https://github.com/sm8799/Secure_E_Vote">Github</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header" href="{% url 'faq' %}">FAQs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header " href="{% url 'technology' %}">Technology</a>
+              </li>
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link header " href="{% url 'createadmin' %}">Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header" href="{% url 'login' %}">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="technology">
+		<h2>Expanding the boundaries of Human Knowledge</h2>
+		<div class="row">
+			<div class="col-lg-6 cart">
+				<p>Server generates auto ballot with profiles and names of candidates. The encrypted ballot also contains the voter info.</p>
+			</div>
+			<div class="col-lg-6 container">
+				<img src="{% static 'image/ballot.jpg' %}" class="ballot">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 container">
+				<img src="{% static 'image/sharepic.png' %}" class="sharepic">
+			</div>
+			<div class="col-lg-6 cart">
+				<p>Random Share generation gives the voter verifiability of the vote. Voter can download the share as proof of the vote.</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 cart">
+				<p>Hackers will have waste of time as decrypting steganography and visual cryptography will make them to play permutation and combination game</p>
+			</div>
+			<div class="col-lg-6 container">
+				<img src="{% static 'image/hacker.png' %}" class="hacker">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6 container">
+				<img src="{% static 'image/threshold.jpg' %}" class="sharepic">
+			</div>
+			<div class="col-lg-6 cart">
+				<p>Threshold Cryptography is a subpart of Blockchain technology and gives freedom to Admin, P.O's to have their indivisual contribution while declaring results.</p>
+			</div>
+		</div>
+    </div>
+    <div class="footer sticky-bottom">
+      <p> content owned, updated and maintained by secureevote@gmail.com
+      <a href="https://twitter.com/marathe_shivam"><img src="{% static 'image/tw-icon.png' %}"></a>
+      <a href="https://www.facebook.com/people/Utkarsh-Andurkar/100008391784858"><img src="{% static 'image/fb-icon.png' %}"></a>
+      </p>         
+    </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

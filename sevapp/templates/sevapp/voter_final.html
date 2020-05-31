@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Vote Casted</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">  
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+	<style type="text/css">
+		.button{
+			padding-right: 10px;
+			padding-left: 10px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			margin-top: 100px;
+			margin-bottom: 30px;
+			background-color: #02290e;
+			font-size: 1.0em;
+			font-family: serif;
+			text-align: center;
+			margin-right: 150px;
+			margin-left: 150px;
+			display: block;
+	    }
+	    .home_logo{
+	   		width: 80px;
+	  	}
+	  	.container{
+     		 margin-top: 125px;
+      		margin-bottom: 100px;
+    	}
+		.header{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+		}
+		.header-right{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+			float: right;
+		}
+		.navbar{
+	    	height: 80px;
+	    	margin-bottom: 30px;
+		}
+	    .share{
+	    	display: block;
+	    	margin-left: auto;
+	    	margin-right: auto;
+	    	border: 2px solid #014006;
+	    }
+	    body {
+			background-color: #edfaed;
+		}
+	    .row{
+	  		margin-bottom: 20px;
+	  		margin-top: 20px;
+	    }
+	    .admin{
+	      font-family: 'IM Fell French Canon SC', serif;
+	      text-align: center;
+    	}
+	</style>
+</head>
+<body>
+	<div id = "navigation_bar">
+      <nav class="navbar fixed-top" style="background-color: #c9f2cc">
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+        <h3 class="mr-auto admin"> Welcome to Dashboard, {{ obj.user }}</h3>
+        <a class="nav-item nav-link header-right" href="{% url 'logout' pk=obj.user_id %}">Logout</a>
+      </nav>
+    </div>
+	<div class="row">
+		<div class="col-lg-6"><a href="{% url 'download' pk=obj.user_id %}" class="btn btn-success button" role="button">Download Share</a></div>
+		<div class="col-lg-6"><a href="{% url 'test' pk=obj.user_id %}" class="btn btn-success button" role="button">Confirm my vote</a></div>
+	</div>
+	<div>
+		<img src="{{ obj.share.url }}" class="share">
+	</div>
+	
+	
+</body>
+</body>
+</html>

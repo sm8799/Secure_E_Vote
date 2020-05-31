@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Welcome</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">  
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		.home_logo{
+	   		width: 80px;
+	  	}
+		.header{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+		}
+		.header-right{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+			float: right;
+		}
+		.navbar{
+	    	height: 80px;
+		}
+		.footer{
+	    	background-color: #c9f2cc;
+	    	margin-top: 60px;
+		}
+		.footer p{
+		    font-family: 'Gotu', sans-serif;
+		    font-style: 1.1em;
+		    text-align: center;
+		}
+		.footer img{
+		    width: 30px;
+		}
+		body {
+			background-color: #edfaed;
+		}
+		.dashboard{
+			margin-top: 125px;
+			margin-bottom: 100px;
+		}
+		.admin{
+	      font-family: 'IM Fell French Canon SC', serif;
+    	}
+    	.h1_features{
+			margin-top: 20px;
+			margin-bottom: 30px;
+			text-align: center;
+			font-family: 'Gotu', sans-serif;
+		}
+		.features h3{
+			 font-family: 'Gotu', sans-serif;
+			 margin-top: 50px;
+			 text-align: center;
+			 margin-bottom: 30px;
+		}
+		.features p{
+			font-family: 'Gotu', sans-serif;
+			text-align: center;
+			margin-bottom: 60px;
+			margin-top: 30px; 
+		}
+		.button{
+			padding-right: 50px;
+			padding-left: 50px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			margin-top: 60px;
+			margin-bottom: 30px;
+			background-color: #02290e;
+			font-size: 1.0em;
+			font-family: serif;
+			text-align: center;
+			margin-right: 70px;
+			margin-left: 70px;
+			display: block;
+	    }
+	    .button_create{
+	    	padding-right: 50px;
+			padding-left: 50px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			margin-top: 85px;
+			margin-bottom: 30px;
+			background-color: #02290e;
+			font-size: 1.0em;
+			font-family: serif;
+			text-align: center;
+			margin-right: 70px;
+			margin-left: 70px;
+			display: block;
+	    }
+	    .patti{
+	    	margin-top: 100px;
+	    	margin-bottom: 50px;
+	    }
+	</style>
+</head>
+<body>
+	<div id = "navigation_bar">
+      <nav class="navbar fixed-top" style="background-color: #c9f2cc">
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+        <h3 class="mr-auto admin"> Welcome to Dashboard, {{ name }}</h3>
+        <a class="nav-item nav-link header-right" href="{% url 'logout' pk=id %}">Logout</a>
+      </nav>
+    </div>
+    <div class="dashboard">
+    	<div class="container">
+	      <div class="features">
+	        <h1 class="h1_features">Let SEV help You</h1>
+	        <div class="row">
+	          <div class="col-md-4" style="border-right: 3px solid #e0f7cd;">
+	            <h3>Election</h3>
+	            <p>Election can be created here. You have authority to create one elction only.</p>
+	            <a href="{% url 'creele' pk=id %}" class="btn btn-info button_create" role="button">Create</a>
+	          </div>
+	          <div class="col-md-4" style="border-right: 3px solid #e0f7cd;">
+	            <h3>Polling Officers</h3>
+	            <p>Adding P.O's will make them enable to further add voters and candidates. At least 1 P.O is required for election to proceed.</p>
+	            <a href="{% url 'addpoff' pk=id %}" class="btn btn-info button" role="button">Add</a>
+	          </div>
+	          <div class="col-md-4">
+	            <h3>Results</h3>        
+	            <p>You will be given with your encrypted key, once you submit the key you can view result of the election</p>
+	            <a href="{% url 'results' pk=id %}" class="btn btn-info button" role="button">Check</a>
+	          </div>
+	        </div>
+	      </div>
+	    </div>
+    </div>
+    <div class="patti">
+    	<div class="col-sm-4"></div>
+    	<div class="col-sm-4 patti_main">
+    		
+    	</div>
+    	<div class="col-sm-4"></div>
+    </div>
+	<div class="footer sticky-bottom">
+		<p> content owned, updated and maintained by secureevote@gmail.com
+		<a href="#"><img src="{% static 'image/tw-icon.png' %}"></a>
+		<a href="#"><img src="{% static 'image/fb-icon.png' %}"></a>
+		</p>         
+    </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+<!-- 
+{% load static %}
+{% block name %}
+	<h3>Welcome {{ name }}</h3>
+{% endblock %}
+{% block content %}
+	<div class="btn-group">
+		<br>
+  		<ul>
+    		<li><a href="{% url 'creele' pk=id %}" class="btn btn-info" role="button">Create Election</a></li><br>
+    		<li><a href="{% url 'addpoff' pk=id %}" class="btn btn-info" role="button">Add Polling Officer</a></li><br>
+   			<li><a href="{% url 'results' pk=id %}" class="btn btn-info" role="button">Check Results</a></li><br>
+  		</ul>
+ 	</div>
+{% endblock %} -->

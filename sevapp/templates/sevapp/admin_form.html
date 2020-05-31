@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Admin Register</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+ <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+  <style type="text/css">
+    .home_logo{
+        width: 80px;
+    }
+    .header{
+      font: sans-serif;
+      color: black;
+      font-size: 1.3em;
+    }
+    .header-right{
+      font: sans-serif;
+      color: black;
+      font-size: 1.3em;
+    }
+    .nav-link{
+      font-family: sans-serif;
+      color: #02290e;
+      font-size: 1.2em;
+      margin-right: 20px;
+    }
+    .footer{
+      background-color: #c9f2cc;
+      margin-top: 60px;
+    }
+    .footer p{
+      font-family: 'Gotu', sans-serif;
+      font-style: 0.5em;
+      text-align: center;
+    }
+    .footer img{
+      width: 1em;
+    }
+    body {
+      background-color: #edfaed;
+    }
+    .admin{
+      font-family: 'Poppins', sans-serif;
+      margin-top: 50px;
+      margin-bottom: 30px;
+    }
+    .admin-info{
+      font-family: 'Poppins', sans-serif;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    .form-control{
+      font-family: 'Poppins', sans-serif;
+    }
+    .button{
+      padding-right: 50px;
+      padding-left: 50px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      margin-top: 50px;
+      margin-bottom: 30px;
+      background-color: #02290e;
+      font-size: 1.0em;
+      font-family: serif;
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+    }
+    p{
+      font-family: 'Poppins';
+    }
+    .tip{
+      color: red;
+      font-size: 0.8em;
+    }
+    .navigation_bar{
+    }
+    .navbar-toggler { 
+      border-color: lightgreen; 
+    }
+    .navbar-toggler-icon { 
+        background-image: url( 
+          "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+    }
+  </style>
+</head>
+<body>
+  <div class = "navigation_bar">
+    <nav class="navbar navbar-expand-lg nav-fixed-top " style="background-color: #c9f2cc;">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link header" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a></li>
+            <li class="nav-item">
+              <a class="nav-link header" href="https://github.com/sm8799/Secure_E_Vote">Github</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link header" href="{% url 'faq' %}">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link header " href="{% url 'technology' %}">Technology</a>
+            </li>
+            
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link header" href="{% url 'login' %}">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="container">   
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            {% if registered %}
+              <div class="alert alert-success alert-dismissible">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>Successfully Registered!</strong> Proceed to <a href="{% url 'login'%}">Login</a> Page !
+              </div>
+            {% endif %}
+          <h1 class="admin">Be an Admin</h1>
+          <h3 class="admin-info">Create Election and Be Responsive</h3>
+      
+          <form enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+            {{ entry_form.as_p }}
+            {{ admin_form.as_p }}
+            <p class="tip">*minimum 8 charcters required</p>
+            <input type="submit" name="Register" value="Register" class="btn btn-success button">
+          </form>
+        </div>
+      </div>
+  </div>
+  <div class="footer sticky-bottom">
+    <p> content owned, updated and maintained by secureevote@gmail.com
+    <a href="https://twitter.com/marathe_shivam"><img src="{% static 'image/tw-icon.png' %}"></a>
+    <a href="https://www.facebook.com/people/Utkarsh-Andurkar/100008391784858"><img src="{% static 'image/fb-icon.png' %}"></a>
+    </p>         
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+
+
+<!-- {% load static %}
+
+{% block content %}
+  <div class="container">
+    <div class="jumbotron">
+      {% if registered %}
+        <h1>Go to <a href="{% url 'login'%}">Login</a> Page !</h1>
+      {% else %}
+        <h1>Register Here</h1>
+        <h3>Just fill out the form.</h3>
+
+        <form enctype="multipart/form-data" method="POST">
+          {% csrf_token %}
+          {{ entry_form.as_p}}
+          {{ admin_form.as_p }}
+          <input type="submit" name="" value="Register">
+        </form>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+{% endblock %} -->

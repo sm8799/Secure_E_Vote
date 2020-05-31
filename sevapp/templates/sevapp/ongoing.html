@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Secure E-Vote</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+   <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet"> 
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">  
+<style type="text/css">
+  .home_logo{
+    width: 80px;
+  }
+  .header{
+    font: sans-serif;
+    color: black;
+    font-size: 1.3em;
+  }
+  .header-right{
+    font: sans-serif;
+    color: black;
+    font-size: 1.3em;
+    float: right;
+  }
+  h1{
+    font-family: 'IM Fell French Canon SC', serif;
+    padding-top: 30px;
+    color: #02362b;
+  }
+  #navigation_bar{
+    /*background-color: #6bfadd;*/
+  }
+  #explain{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: #001a14;
+    padding-top: 20px; 
+  }
+  .crele{
+    padding-right: 20px;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #02290e;
+    font-size: 1.0em;
+    font-family: serif;
+  }
+  .demo{
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #02290e;
+    font-size: 1.0em;
+    font-family: serif;
+  }
+  #frontimg{
+    margin-top: 30px;
+    margin-bottom: 40px;
+    width: 500px;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+  .h1_features{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .features h3{
+     font-family: 'Gotu', sans-serif;
+     margin-top: 50px;
+     text-align: center;
+     margin-bottom: 30px;
+  }
+  .features p{
+    font-family: 'Gotu', sans-serif;
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 30px; 
+  }
+  body {
+    background-color: #edfaed;
+  }
+  .footer{
+    background-color: #c9f2cc;
+    margin-top: 60px;
+  }
+  .footer p{
+    font-family: 'Gotu', sans-serif;
+    font-style: 1.1em;
+    text-align: center;
+  }
+  .footer img{
+    width: 30px;
+  }
+  .ongoing{
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #02290e;
+    font-size: 1.0em;
+    font-family: serif;
+    text-align: center;
+  }
+  .nav-link{
+    font-family: sans-serif;
+    color: #02290e;
+    font-size: 1.2em;
+    margin-right: 20px;
+  }
+  .container{
+    font-family: 'Gotu';
+  }
+  article{
+    margin-bottom: 50px;
+    margin-top: 50px;
+    border-left: 10px solid #025c47;
+    border-right: 10px solid #025c47;
+    background-color: #d2fae0;
+  }
+  .tabcontent{
+    transition: all 3s ease;
+  }
+  h3:hover {
+    cursor:pointer;
+    transition: 2s ease;
+  }
+  h3{
+    text-align: center;
+    transition: all 3s ease;
+  }
+  td{
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+  }
+  table{
+    display: block;
+    margin-left: 75px;
+    margin-right: 10px;
+  }
+  .marquee {
+    width: 100%;
+    line-height: 50px;
+    color: red;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .marquee h2 {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 15s linear infinite;
+  }
+  @keyframes marquee {
+    0%   { transform: translate(0, 0); }
+    100% { transform: translate(-100%, 0); }
+  }
+  .navbar-toggler { 
+    border-color: lightgreen; 
+  }
+  .navbar-toggler-icon { 
+      background-image: url( 
+      "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+  }
+</style>
+</head>
+<body>
+  <div class = "navigation_bar">
+    <nav class="navbar navbar-expand-lg nav-fixed-top " style="background-color: #c9f2cc;">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link header" href="{% url 'about' %}">About</a></li>
+            <li class="nav-item">
+              <a class="nav-link header" href="https://github.com/sm8799/Secure_E_Vote">Github</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link header" href="{% url 'faq' %}">FAQs</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link header " href="{% url 'technology' %}">Technology</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link header " href="{% url 'createadmin' %}">Admin</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link header" href="{% url 'login' %}">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="container" id="_appendHere">
+    <div>
+      <p style="text-align: right;font-family: sans-serif;">last synced : {{last_synced}}</p>
+    </div>
+    <div class="marquee">
+      <h2>Expand for More Information</h2>
+    </div>
+    {% for i, j , k, l in ongoing %}
+      <article>
+        <h3 style="padding-left: 20px;" class="tablinks" onclick="openCity(event,'{{i.election_name}}', '{{i.end_date}}')">{{i.election_name}}</h3>
+        <div class="tabcontent" id="{{i.election_name}}" style='display:none;'>
+          <div class="row">
+            <div class="col-sm-6">
+              <table>
+                <tr>
+                  <td>Admin name</td>
+                  <td>- {{i.admin}}</td>
+                </tr>
+                <tr>
+                  <td>Admin mail </td>
+                  <td>- {{i.admin.Email}}</td>
+                </tr>
+                <tr>
+                  <td>% Voting Done</td>
+                  <td>- {{ l }}</td>
+                </tr>
+                <tr>
+                  <td>Total Voters </td>
+                  <td>- {{ j }}</td>
+                </tr>
+               </table>
+            </div>
+            <div class="col-sm-6">
+              <table>
+                <tr>
+                  <td>Starting date</td>
+                  <td>- {{i.start_date}}</td>
+                </tr>
+                <tr>
+                  <td>Ending date</td>
+                  <td>- {{i.end_date}}</td>
+                </tr>
+                <tr>
+                  <td>Total Candidates </td>
+                  <td>- {{ k }}</td>
+                </tr>
+                <tr>
+                  <td>Voting Expires in </td>
+                  <td id="{{i.end_date}}"></td>
+                </tr>
+              </table>
+            </div>
+          </div>        
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ 
+  <script>
+  function openCity(evt, cityName, date) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
+      var D = new Date(date);
+      D.setDate(D.getDate() + 1)
+      var countDownDate = new Date(D).getTime();
+      var x = setInterval(function() {
+        
+        // Get today's date and time
+        var now = new Date().getTime();
+          
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+          
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+        // Output the result in an element with id="demo"
+        document.getElementById(date).innerHTML = "- " + days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+          
+        // If the count down is over, write some text 
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById(date).innerHTML = "EXPIRED";
+        }
+      }, 1000);
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+      tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+  }
+  setTimeout(function(){
+    $.ajax({
+      type: "GET",
+      url :{% url 'ongoing' %},
+      cache:false,
+       success: function(data) {
+            $("body").html(data);
+        }
+    });
+  }, 60000);
+  </script>
+  
+</body>
+</html>

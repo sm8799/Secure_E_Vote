@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Results</title>
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">  
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		body {
+			background-color: #edfaed;
+		}
+		.home_logo{
+        width: 80px;
+      }
+      .container{
+         margin-top: 125px;
+          margin-bottom: 100px;
+      }
+    .header{
+      font: sans-serif;
+      color: black;
+      font-size: 1.3em;
+    }
+    .header-right{
+      font: sans-serif;
+      color: black;
+      font-size: 1.3em;
+      float: right;
+    }
+    .navbar{
+        height: 80px;
+        margin-bottom: 30px;
+    }
+    body {
+      background-color: #edfaed;
+    }
+    .dashboard{
+      margin-top: 125px;
+      margin-bottom: 100px;
+    }
+    .admin{
+        font-family: 'IM Fell French Canon SC', serif;
+        text-align: center;
+      }
+      .h1_features{
+      margin-top: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      font-family: 'Gotu', sans-serif;
+    }
+    .features h3{
+       font-family: 'Gotu', sans-serif;
+       margin-top: 50px;
+       text-align: center;
+       margin-bottom: 30px;
+    }
+    p{
+      font-family: 'Gotu', sans-serif;
+      text-align: left;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      padding-left: 30px; 
+    }
+    .button{
+      padding-right: 50px;
+      padding-left: 50px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+      margin-top: 60px;
+      margin-bottom: 30px;
+      background-color: #02290e;
+      font-size: 1.0em;
+      font-family: serif;
+      text-align: center;
+      margin-right: auto;
+      margin-left: auto;
+      display: block;
+      width: 300px;
+      }
+      #_appendhere{
+      	margin-bottom: 100px;
+      }
+      #_appendhere h3 {
+      	font-family: 'Gotu', sans-serif;
+      	text-align: center;
+      	margin-bottom: 40px;
+      	margin-top: 40px;
+      }
+      table{
+      	font-family: 'Gotu', sans-serif;
+      	font-style: bold;
+      	margin: 0px auto;
+      }
+      tr{
+      	padding-bottom: 20px;
+      	padding-top: 20px;
+      	margin-bottom: 30px;
+      	margin-top: 30px;
+      }
+	table, th, td {
+		border: 2px solid #8ceda7;
+		text-align: center;
+	}
+	td, th{
+		padding-top: 20px;
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		padding-left: 40px;
+		padding-right: 40px; 
+
+	}
+	.first{
+		padding-left: 80px;
+	}
+	.tab {
+	  overflow: hidden;
+	  border: 1px solid #ccc;
+	  background-color: #eafaec;
+	  width: 354px;
+	  margin-top: 80px;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+	.tab button {
+	  background-color: inherit;
+	  border: none;
+	  outline: none;
+	  cursor: pointer;
+	  padding: 14px 16px;
+	  transition: 0.3s;
+	  font-size: 20px;
+	  font-family: 'IM Fell French Canon SC', sans-serif;
+	}
+	.tab button:hover {
+	  background-color: #83e290;
+	}
+	.tab button.active {
+	  background-color: #2cba3f;
+	}
+	.tabcontent {
+	  display: none;
+	  padding: 6px 12px;
+	}
+	.top{
+		margin-top: 150px;
+		font-family: 'Gotu', sans-serif;
+	}
+	.mine_form{
+		margin-top: 100px;
+		font-family: 'Gotu',sans-serif;
+	}
+	#piechart{
+		margin-top: 30px;
+		margin-bottom: 30px;
+		font-family: 'Gotu', sans-serif;
+		display: block;
+		margin-right: 150px;
+		margin-left: 150px;
+	}
+	.mine_button{
+		margin-top: 100px;
+		font-family: 'Gotu',sans-serif;
+	}
+	</style>
+</head>
+<body>
+	<div id = "navigation_bar">
+      <nav class="navbar fixed-top" style="background-color: #c9f2cc">
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+        <h3 class="mr-auto admin"> Welcome to Results, {{ obj.user }}</h3>
+        <a class="nav-item nav-link header-right" href="{% url process pk=obj.user_id %}">Home</a>
+        <a class="nav-item nav-link header-right" href="{% url 'logout' pk=obj.user_id %}">Logout</a>
+      </nav>
+    </div>
+    {% if fail == 0 and pass == 0 and process == 'poff_process' %}
+    	<div class="row">
+    		<div class="col-sm-4">
+    		</div>
+    		<div class="col-sm-4">
+    			<div class="mine_form">
+			    	<form enctype="multipart/form-data" method="POST">
+			    		{% csrf_token %}
+			    		<label for = "id" class="label"> Your ID :</label>
+			    		<input type="number" id="id" name="id" class="form-control"><br>
+			    		<label for = "key" class="label"> Your Key :</label>
+			    		<input type="number" id="key" name="key" class="form-control"><br>
+			    		<input type="submit" name="Mine" value="Mine" class="btn btn-success button">
+			    	</form>
+		    	</div>
+    		</div>
+    		<div class="col-sm-4">
+    		</div>
+    	</div>
+    {% elif fail == 0 and pass == 0 and process == 'admin_process' %}
+    	<div class="row">
+    		<div class="col-sm-4">
+    		</div>
+    		<div class="col-sm-4">
+    			<div class="mine_button">
+    				<h3> Mining Process is yet to start </h3>
+	    			<a href="{% url 'threshold' pk=obj.user_id %}" class="btn btn-info button" role="button">Start Mining</a>
+    			</div>
+    		</div>
+    		<div class="col-sm-4">
+    		</div>
+    	</div>
+    {% elif fail == 1 and pass == 0 %}
+    	<div class="row">
+    		<div class="col-sm-4">
+    		</div>
+    		<div class="col-sm-4">
+    			<div class="alert alert-danger alert-dismissible top">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Improper Mining!</strong>Back to <a href="{% url process pk=obj.user_id %}">Dashboard</a> !
+				</div>
+    		</div>
+    		<div class="col-sm-4">
+    		</div>
+    	</div>
+		    	
+	{% elif fail == 1 and pass == 1 %}
+		<div class="row">
+    		<div class="col-sm-4">
+    		</div>
+    		<div class="col-sm-4">
+    			<div class="alert alert-danger alert-dismissible top">
+					<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+					<strong>Rest P.O's are remaining!</strong>Back to <a href="{% url process pk=obj.user_id %}">Dashboard</a> !
+				</div>
+    		</div>
+    		<div class="col-sm-4">
+    		</div>
+    	</div>
+		    	
+    {% else %}
+		<div class="tab">
+		  <button class="tablinks" onclick="openCity(event, 'London')">Election</button>
+		  <button class="tablinks" onclick="openCity(event, 'Paris')">Candidates</button>
+		  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Winner</button>
+		</div>
+		<div id = "_appendhere">
+			<div class="row">
+				<div class="col-sm-2">
+				</div>
+				<div class="col-sm-8">
+					<div id="London" class="tabcontent">
+						<h3 class="election_details">Election Details</h3>
+						<table>
+							<tr>
+								<th><h4>Elements</h4></th>
+								<th><h4>Description</h4></th>
+							</tr>
+							<tr>
+								<td><strong>Number of Voters in Election</strong></td>
+								<td><strong>{{ len1 }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Number of Candidates in Election </strong></td>
+								<td><strong>{{ len2 }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Numbers of Polling Officers </strong></td>
+								<td><strong>{{ len3 }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Election Start Date</strong></td>
+								<td><strong>{{ start_date }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Election End Date</strong></td>
+								<td><strong>{{ end_date }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Viewing Under </strong></td>
+								<td><strong>{{ obj.user }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Total votes expected </strong></td>
+								<td><strong>{{ total_votes }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>Votes Counted </strong></td>
+								<td><strong>{{ counted_votes }}</strong></td>
+							</tr>
+							<tr>
+								<td><strong>% Voting done  </strong></td>
+								<td><strong>{{ percentage }}</strong></td>
+							</tr>
+						</table>
+					</div>
+						
+					<div id="Paris" class="tabcontent">
+						<h3 class="election_details">Candidates Details</h3>
+						<table>
+							<tr>
+								<th><h4>Candidates</h4></th>
+								<th><h4>Votes Obtained</h4></th>
+							</tr>
+							{% for i in candidate_objects %}
+								<tr>
+									<td><strong class="user">{{ i.user }}</strong></td>
+									<td><strong class="vote">{{ i.votes }}</strong></td>
+								</tr>
+							{% endfor %}
+							<tr>
+								<td><strong class="user">NOTA</strong></td>
+								<td><strong class="vote">{{ nota }}</strong></td>
+							</tr>
+						</table>
+						<div id = "piechart">
+							
+						</div>
+					</div>
+					
+					<div id="Tokyo" class="tabcontent">
+						<h3 class="election_details">Winner Details</h3>
+						<table>
+							<tr>
+								<td>Name of the Winner</td>
+								<td>Votes Obtained</td>
+							</tr>
+							<tr>
+								<td>{{ winner_name }}</td>
+								<td>{{ winner_votes }}</td>
+							</tr>
+						</table>
+					</div>
+					<a href="{% url 'downloadrep' pk=obj.user_id %}" class="btn btn-success button" role="button">Download Report</a>
+				</div>
+
+				<div class="col-sm-2">
+				</div>
+			</div>
+		</div>
+	{% endif %}
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+	var data = [['Candidate', 'votes']], i, user, votes;
+	user = document.getElementsByClassName("user");
+	votes = document.getElementsByClassName("vote");
+	for (i = 0; i < user.length; i++) {
+    	data.push([user[i].innerHTML, parseInt(votes[i].innerHTML)]);
+  	}
+	var d = google.visualization.arrayToDataTable(data);
+
+	// Optional; add a title and set the width and height of the chart
+	var options = {'title':'Vote Share Analysis', 'width':550, 'height':400};
+
+	// Display the chart inside the <div> element with id="piechart"
+	var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+	chart.draw(d, options);
+}
+</script>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+</body>
+</html>

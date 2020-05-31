@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Secure E-Vote</title>
+  <meta charset="utf-8">
+  <link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	 <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+ <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet"> 
+ <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">  
+<style type="text/css">
+  .home_logo{
+    width: 80px;
+  }
+  .header{
+    font: sans-serif;
+    color: black;
+    
+  }
+  .header-right{
+    font: sans-serif;
+    color: black;
+    
+    float: right;
+  }
+  h1{
+    font-family: 'IM Fell French Canon SC', serif;
+    padding-top: 30px;
+    color: #02362b;
+  }
+  #navigation_bar{
+    /*background-color: #6bfadd;*/
+    margin: 0 auto -30px;
+  }
+  #explain{
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5em;
+    color: #001a14;
+    padding-top: 20px; 
+  }
+  .crele{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #02290e;
+    font-size: 1.0em;
+    font-family: serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    display: block;
+  }
+  .demo{
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: #02290e;
+    font-size: 1.0em;
+    font-family: serif;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    display: block;
+  }
+  .nav-link{
+    font-family: sans-serif;
+    color: #02290e;
+    font-size: 1.2em;
+    margin-right: 20px;
+  }
+  #frontimg{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    max-width: 420px;
+    width: 100%;
+  }
+  .h1_features{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .features h3{
+     font-family: 'Gotu', sans-serif;
+     margin-top: 50px;
+     text-align: center;
+     margin-bottom: 30px;
+  }
+  .features p{
+    font-family: 'Gotu', sans-serif;
+    text-align: center;
+    margin-bottom: 60px;
+    margin-top: 30px; 
+  }
+  .footer{
+    background-color: #c9f2cc;
+    margin-top: 60px;
+  }
+  .footer p{
+    font-family: 'Gotu', sans-serif;
+    font-style: 0.5em;
+    text-align: center;
+  }
+  .footer img{
+    width: 1em;
+  }
+  .ongoing{
+    /*padding-right: 50px;
+    padding-left: 50px;*/
+    background-color: #02290e;
+    font-size: 1.0em;
+    font-family: serif;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100px;
+  }
+  .navigation_bar{
+  }
+  .navbar-toggler { 
+    border-color: lightgreen; 
+  }
+  .navbar-toggler-icon { 
+      background-image: url( 
+        "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+  }
+</style>
+</head>
+<body>
+    <div class = "navigation_bar">
+      <nav class="navbar navbar-expand-lg nav-fixed-top " style="background-color: #c9f2cc;">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link header" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a></li>
+              <li class="nav-item">
+                <a class="nav-link header" href="https://github.com/sm8799/Secure_E_Vote">Github</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header" href="{% url 'faq' %}">FAQs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header " href="{% url 'technology' %}">Technology</a>
+              </li>
+              
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link header " href="{% url 'createadmin' %}">Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header" href="{% url 'login' %}">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container" style="margin-top: 20px;">
+      <div class="form-row">
+        <div class="col-lg-6">
+          <h1>SEV is the Secure Online Voting System</h1>
+          <p id="explain">We optimise voting process with a secure steganography and visual cryptography. It is three layer system for conducting online elections.</p>
+          <div class="form-row">
+            <div class="col-lg-4">
+              <a href="{% url 'createadmin' %}" class="btn btn-info btn-lg crele" role="button">Create Election</a>
+            </div>
+            <div class="col-lg-2">
+            </div>
+            <div class="col-lg-4">
+              <a href="{% url 'createadmin' %}" class="btn btn-info btn-lg demo" role="button">Tutorial</a>
+            </div>
+            <div class="col-lg-2">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <img id="frontimg" src="{% static 'image/votebg.jpg'%}">
+        </div>
+      </div>
+    </div><br>
+    <div class="container">
+      <div class="features">
+        <h1 class="h1_features">SEV features</h1>
+        <div class="row">
+          <div class="col-md-4" style="border-right: 3px solid #e0f7cd;">
+            <h3>Aadhaar Based</h3>
+            <p>Our focus is to use Aadhaar based verification process. Each participant will be validated with Aadhaar and Mail</p>
+          </div>
+          <div class="col-md-4" style="border-right: 3px solid #e0f7cd;">
+            <h3>Image Encryption</h3>
+            <p>Cryptography algorithms for hiding privacy of the Voter. Share generation process gives confirmation about the vote.</p>
+          </div>
+          <div class="col-md-4">
+            <h3>Future Scope</h3>        
+            <p>Anytime, Anywhere with the future possible integration with 5G.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+        </div>
+        <div class="col-lg-4">
+          <p style="text-align: center;"> <a href="{% url 'ongoing' %}" class="btn btn-info btn-lg ongoing" role="button">Ongoing Elections</a></p>
+        </div>
+        <div class="col-lg-4">
+        </div>
+      </div>
+    <div class="footer sticky-bottom">
+      <p> content owned, updated and maintained by secureevote@gmail.com
+      <a href="https://twitter.com/marathe_shivam"><img src="{% static 'image/tw-icon.png' %}"></a>
+      <a href="https://www.facebook.com/people/Utkarsh-Andurkar/100008391784858"><img src="{% static 'image/fb-icon.png' %}"></a>
+      </p>         
+    </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

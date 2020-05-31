@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Technology</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		.home_logo{
+	   		width: 80px;
+	  	}
+		.header{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+		}
+		.header-right{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+			float: right;
+		}
+		.navbar{
+	    	height: 80px;
+		}
+		.footer{
+	    	background-color: #c9f2cc;
+	    	margin-top: 60px;
+		}
+		.footer p{
+		    font-family: 'Gotu', sans-serif;
+		    font-style: 1.1em;
+		    text-align: center;
+		}
+		.footer img{
+		    width: 30px;
+		}
+		body {
+			background-color: #edfaed;
+		}
+	</style>
+</head>
+<body>
+	<div id = "navigation_bar">
+      <nav class="navbar fixed-top" style="background-color: #c9f2cc">
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+        <a class="nav-item nav-link active header" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link header" href="https://github.com/sm8799/Secure_E_Vote">Github</a>
+        <a class="nav-item nav-link header mr-auto" href="{% url 'technology' %}">Technology</a>
+        <a class="nav-item nav-link header " href="{% url 'createadmin' %}">Admin</a>
+        <a class="nav-item nav-link header-right" href="{% url 'login' %}">Login</a>
+      </nav>
+    </div>
+    </div>
+     <div class="footer sticky-bottom">
+      <p> content owned, updated and maintained by secureevote@gmail.com
+      <a href="#"><img src="{% static 'image/tw-icon.png' %}"></a>
+      <a href="#"><img src="{% static 'image/fb-icon.png' %}"></a>
+      </p>         
+    </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

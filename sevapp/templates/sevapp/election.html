@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>Welcome</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+	<link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap" rel="stylesheet">  
+	<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+		.home_logo{
+	   		width: 80px;
+	  	}
+	  	.container{
+     		 margin-top: 125px;
+      		margin-bottom: 100px;
+    	}
+		.header{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+		}
+		.header-right{
+			font: sans-serif;
+			color: black;
+			font-size: 1.3em;
+			float: right;
+		}
+		.navbar{
+	    	height: 80px;
+	    	margin-bottom: 30px;
+		}
+		.footer{
+	    	background-color: #c9f2cc;
+	    	margin-top: 60px;
+	    	padding-bottom: 0px;
+		}
+		.footer p{
+		    font-family: 'Gotu', sans-serif;
+		    font-style: 1.1em;
+		    text-align: center;
+		}
+		.footer img{
+		    width: 30px;
+		}
+		body {
+			background-color: #edfaed;
+		}
+		.dashboard{
+			margin-top: 125px;
+			margin-bottom: 100px;
+		}
+		.admin{
+	      font-family: 'IM Fell French Canon SC', serif;
+	      text-align: center;
+    	}
+    	.h1_features{
+			margin-top: 20px;
+			margin-bottom: 30px;
+			text-align: center;
+			font-family: 'Gotu', sans-serif;
+		}
+		.features h3{
+			 font-family: 'Gotu', sans-serif;
+			 margin-top: 50px;
+			 text-align: center;
+			 margin-bottom: 30px;
+		}
+		.features p{
+			font-family: 'Gotu', sans-serif;
+			text-align: center;
+			margin-bottom: 60px;
+			margin-top: 30px; 
+		}
+		.button{
+			padding-right: 50px;
+			padding-left: 50px;
+			padding-bottom: 10px;
+			padding-top: 10px;
+			margin-top: 60px;
+			margin-bottom: 30px;
+			background-color: #02290e;
+			font-size: 1.0em;
+			font-family: serif;
+			text-align: center;
+			margin-right: auto;
+			margin-left: auto;
+			display: block;
+	    }
+	    .container p{
+	    	margin-top: 40px;
+      		font-family: 'Poppins';
+    	}
+    	.form-control, .label{
+      		font-family: 'Poppins', sans-serif;
+    	}
+	</style>
+</head>
+<body>
+	<div id = "navigation_bar">
+      <nav class="navbar fixed-top" style="background-color: #c9f2cc">
+        <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+        <h3 class="mr-auto admin"> Welcome to Dashboard, {{ admin.user }}</h3>
+        <a class="nav-item nav-link header-right" href="{% url 'logout' pk=admin.user_id %}">Logout</a>
+      </nav>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+        	{% if election %}
+	            <div class="alert alert-success alert-dismissible">
+	              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	              <strong>Election Successfully Created!</strong> Back to <a href="{% url 'admin_process' pk=admin.user_id %}">Dashboard</a> !
+	            </div>
+	        {% endif %}
+        	<h1 class="admin">Create Election</h1>
+			<form enctype="multipart/form-data" method="POST">
+				{% csrf_token %}
+				{{ election_form.as_p }}
+				<label for="sd" class="label">Start Date:</label>
+				<input type="date" id="sd" name="start_date" class="form-control"><br>
+				<label for="ed" class="label">End Date:</label>
+				<input type="date" id="ed" name="end_date" class="form-control"><br>
+				<input type="submit" name="create" value="Create" class="btn btn-success button">
+			</form>
+        </div>
+      </div>
+    </div>
+	<div class="footer sticky-bottom">
+		<p> content owned, updated and maintained by secureevote@gmail.com
+		<a href="#"><img src="{% static 'image/tw-icon.png' %}"></a>
+		<a href="#"><img src="{% static 'image/fb-icon.png' %}"></a>
+		</p>         
+    </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	<script type="text/javascript">
+	  	var start = document.getElementById('sd');
+		var end = document.getElementById('ed');
+		start.addEventListener('click', function() {
+		    var x = new Date().getFullYear()
+		    var y = new Date().getMonth() + 1
+		    if(y < 10) {
+		    	y = "0" + y.toString()
+		    }
+		    var z = new Date().getDate()
+		    x = x.toString() + "-" + y + "-" + z.toString();
+		    if (start.value){
+		        end.min = start.value;
+		    }
+		    else{
+		    	start.min = x;
+		    }
+		}, false);
+		end.addEventListener('click', function() {
+		    var x = new Date().getFullYear();
+		    var y = new Date().getMonth() + 1;
+		    if(y < 10) {
+		    	y = "0" + y.toString();
+		    }
+		    var z = new Date().getDate();
+		    x = x.toString() + "-" + y + "-" + z.toString();
+		    if (end.value){
+		        start.max = end.value;
+		    }
+		    else
+		    	end.min = x;
+		}, false);
+		start.addEventListener('change', function() {
+		    if (start.value) {
+		        end.min = start.value;
+		    }
+		}, false);
+		end.addEventListener('change', function() {
+		    if (end.value)
+		        start.max = end.value;
+		}, false);
+  	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- 
+{% load static %}
+{% block name %}
+	<h3>Welcome {{ name }}</h3>
+{% endblock %}
+{% block content %}
+	{% if election %}
+	  <h4>Election Created Go Back</h4>
+	{% else %}
+		<h4>Create An Election</h4>
+	 	<form enctype="multipart/form-data" method="POST">
+	    	{% csrf_token %}
+	    	{{ election_form.as_p }}
+	    	<label for="sd">Start Date:</label>
+	    	<input type="date" id="sd" name="start_date"><br>
+	    	<label for="ed">End Date:</label>
+	    	<input type="date" id="ed" name="end_date"><br>
+	    	<input type="submit" name="" value="Login">
+	 	</form>
+	{% endif %}
+{% endblock %} -->

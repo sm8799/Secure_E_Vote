@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+	<title>About Us</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+	<link rel="shortcut icon" href="{%  static 'favicon.ico' %}">
+ <!-- <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One" rel="stylesheet"> -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css2?family=Gotu&display=swap" rel="stylesheet"> 
+	<style type="text/css">
+	.home_logo{
+   		width: 80px;
+  	}
+	.header{
+		font: sans-serif;
+		color: black;
+		font-size: 1.3em;
+	}
+	.header-right{
+		font: sans-serif;
+		color: black;
+	}
+	.nav-link{
+		font-family: sans-serif;
+		color: #02290e;
+		font-size: 1.2em;
+		margin-right: 20px;
+	}
+	.mission{
+		margin-top: 80px;
+		text-align: center;
+		font-family: 'Gotu', sans-serif;
+		margin-bottom: 50px;
+	}
+	.about{
+		margin-top: 100px;
+		text-align: center;
+		font-family: 'Gotu', sans-serif;
+		margin-bottom: 80px;
+	}
+	.info{
+		padding-bottom: 50px;
+		border-bottom: 4px solid #e0f7cd;
+		font-family: 'Gotu', sans-serif;
+		text-align: center;
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		max-width: 700px;
+		width: 100%; 
+	}
+	.navbar-toggler { 
+	    border-color: lightgreen; 
+	  }
+	.navbar-toggler-icon { 
+	  background-image: url( 
+	    "data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E"); 
+	}
+	.utkarsh{
+		width: 100px;
+		float: center;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 20px;
+		border: 2px solid #014006;
+		border-radius: 30px;
+	}
+	.shivam{
+		width: 100px;
+		float: center;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		margin-bottom: 20px;
+		border: 2px solid #014006;
+		border-radius: 30px;
+	}
+	.identity_utkarsh{
+		text-align: center;
+		font-family: 'Gotu', sans-serif;
+	}
+	.footer{
+    	background-color: #c9f2cc;
+    	margin-top: 60px;
+	}
+	.footer p{
+	    font-family: 'Gotu', sans-serif;
+	    font-style: 0.5em;
+	    text-align: center;
+	}
+	.footer img{
+	    width: 1em;
+	}
+	</style> 
+</head>
+<body>
+	<div class = "navigation_bar">
+      <nav class="navbar navbar-expand-lg nav-fixed-top " style="background-color: #c9f2cc;">
+        <div class="container">
+          <a class="navbar-brand" href="{% url 'home'%}"><img src="{% static 'image/homenav.png'%}" class="home_logo" ></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link header" href="{% url 'about' %}">About<span class="sr-only">(current)</span></a></li>
+              <li class="nav-item">
+                <a class="nav-link header" href="https://github.com/sm8799/Secure_E_Vote">Github</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header" href="{% url 'faq' %}">FAQs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header " href="{% url 'technology' %}">Technology</a>
+              </li>
+              
+            </ul>
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link header " href="{% url 'createadmin' %}">Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link header" href="{% url 'login' %}">Login</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="container">
+    	<h3 class="mission">Our Mission</h3>
+    	<p class="info">In India, there are institutes, colleges and organisations where Democracy exists. Thus  our vision is to provide them the online E voting system which can help them to make required decisions and take off the overhead of arrangement of elections.</p>
+
+    	<h3 class="about">About Us</h3>
+    	<div class="row">
+    		<div class="col-sm-6">
+    			<img src="{% static 'image/utkarsh.jpg' %}" class="utkarsh">
+    			<p class="identity_utkarsh">Utkarshbhanu Andurkar<br>111708073</p>
+    		</div>
+    		<div class="col-sm-6">
+    			<img src="{% static 'image/shivam.jpg' %}" class="shivam">
+    			<p class="identity_utkarsh">Shivam Marathe<br>111708035</p>
+    		</div>
+    	</div>
+    </div>
+    <div class="footer sticky-bottom">
+      <p> content owned, updated and maintained by secureevote@gmail.com
+      <a href="https://twitter.com/marathe_shivam"><img src="{% static 'image/tw-icon.png' %}"></a>
+      <a href="https://www.facebook.com/people/Utkarsh-Andurkar/100008391784858"><img src="{% static 'image/fb-icon.png' %}"></a>
+      </p>         
+    </div>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
