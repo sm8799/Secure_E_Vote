@@ -17,7 +17,7 @@ cssselect2==0.3.0
 cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.6.0
-Django==3.0.3
+Django==3.0.7
 django-easy-pdf==0.1.1
 django-ip==1.0.2
 django-six==1.0.4
